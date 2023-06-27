@@ -23,7 +23,7 @@ public class BulletScript : MonoBehaviour
         if (-4.2f > transform.position.x || transform.position.x > 4.2f || -5.5f > transform.position.y || transform.position.y > 5.5f)
         {
 
-            Debug.Log("bullet deleted");
+            //Debug.Log("bullet deleted");
             Destroy(gameObject);
 
         }
@@ -36,5 +36,6 @@ public class BulletScript : MonoBehaviour
         hashHit = true;
         rb.velocity = Vector2.zero;
         rb.isKinematic = true;
+        Destroy(gameObject);
     }
 }

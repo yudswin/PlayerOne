@@ -49,13 +49,13 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip();
             facingRight = true;
-            Debug.Log("turn right");
+            //Debug.Log("turn right");
         }
         else if (x < 0 && facingRight)
         {
             Flip();
             facingRight = false;
-            Debug.Log("turn left");
+            //Debug.Log("turn left");
         }
 
 
