@@ -460,7 +460,6 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 4.5
   edgePadding: 0.028
-  gun: {fileID: 1777776702}
 --- !u!1 &929110777
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,6 +604,8 @@ MonoBehaviour:
   bullet: {fileID: 8707944436507873185, guid: 04accbbff8ea1f246839914992f0285a, type: 3}
   launchForce: 15
   shotPoint: {fileID: 77155534}
+  offSet: 0
+  spriteRender: {fileID: 0}
 --- !u!212 &1777776704
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -665,8 +666,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777776702}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.15, y: 0, z: 0}
-  m_LocalScale: {x: 0.87706524, y: 0.6922649, z: 0.71690935}
+  m_LocalPosition: {x: 0.048, y: 0.0089, z: 0}
+  m_LocalScale: {x: 0.9668767, y: 0.7631528, z: 0.7903208}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 77155534}

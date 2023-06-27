@@ -6,20 +6,41 @@ public class GunScript : MonoBehaviour
     public float launchForce;
     public Transform shotPoint;
 
+    public float offSet;
+
+    public SpriteRenderer spriteRender;
+
+    private void Start()
+    {
+        spriteRender = GetComponent<SpriteRenderer>();
+    }
+
 
 
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 gunPos = transform.position;
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 direction = mousePos - gunPos;
-        transform.position = direction;
+
+        Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        float rotZ = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offSet);
+
+        if (rotZ < 89 && rotZ > -89)
+        {
+            // When player facing right
+            spriteRender.flipY = false;
+        }
+        else
+        {
+            // When player facing left
+            spriteRender.flipY = true;
+        }
+
 
         if (Input.GetMouseButtonDown(0))
         {
-            Shoot();
+            Shoot(); //Shoot when press button 0
         }
 
 

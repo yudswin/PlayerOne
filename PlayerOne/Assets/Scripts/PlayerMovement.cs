@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float edgePadding = 0.1f;
 
     private bool facingRight = true;
-    public GameObject gun;
+
 
     // Start is called before the first frame update
     void Start()
@@ -103,7 +103,5 @@ public class PlayerMovement : MonoBehaviour
     private void Flip()
     {
         transform.Rotate(0f, 180f, 0f);
-        //gun flip
-        gun.transform.Rotate(0f, 180f, 0f);
     }
 }
