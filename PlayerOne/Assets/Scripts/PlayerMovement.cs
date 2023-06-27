@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 4.5f;
     [SerializeField] private float edgePadding = 0.1f;
 
+    private bool facingRight = true;
+    public GameObject gun;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +44,21 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
         //LoopOnWallCollision();
+
+        if (x > 0 && !facingRight)
+        {
+            Flip();
+            facingRight = true;
+            Debug.Log("turn right");
+        }
+        else if (x < 0 && facingRight)
+        {
+            Flip();
+            facingRight = false;
+            Debug.Log("turn left");
+        }
+
+
 
         PreventScreenEdgeCollision();
     }
@@ -83,4 +100,10 @@ public class PlayerMovement : MonoBehaviour
         transform.position = clampedWorldPosition;
     }
 
+    private void Flip()
+    {
+        transform.Rotate(0f, 180f, 0f);
+        //gun flip
+        gun.transform.Rotate(0f, 180f, 0f);
+    }
 }
