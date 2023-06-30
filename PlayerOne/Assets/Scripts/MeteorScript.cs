@@ -5,10 +5,16 @@ public class MeteorScript : MonoBehaviour
     public float fieldofImpact;
     public float force;
 
+
     public LayerMask LayerToHit;
 
     //Explode Animation
     public Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -18,7 +24,7 @@ public class MeteorScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         MeteorExplode();
-        animator.Play("explode");
+        animator.SetFloat("explode", 0);
         if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
         {
             Destroy(gameObject);
